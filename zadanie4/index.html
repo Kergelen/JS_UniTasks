@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spotify</title>
+  <link rel="stylesheet" href="styles.css">
+  </head>
+
+<body>
+  <div id="user-info">
+    <img id="profile-picture" src="" alt="Profile Picture">
+    <h1 id="nickname"></h1>
+  </div>
+
+  <div id="playlists">
+    <h2>Playlisty</h2>
+    <div id="sort-options">
+      <label for="sort-select">Sortować:</label>
+      <select id="sort-select">
+        <option value="name">Nazwa</option>
+        <option value="songs">Liczba utworów</option>
+      </select>
+      <button id="sort-order-button">Przełącz sortowanie</button>
+    </div>
+    <div id="playlist-list"></div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

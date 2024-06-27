@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Zmiana rozmiaru obrazu</title>
+</head>
+
+<body>
+  <h1>Zmiana rozmiaru obrazu</h1>
+  <input type="file" id="fileInput">
+  <input type="number" id="widthInput" placeholder="Width">
+  <input type="number" id="heightInput" placeholder="Height">
+  <button onclick="resizeImage()">Zmień rozmiar</button>
+  
+  <script>
+    async function resizeImage() {
+      const fileInput = document.getElementById('fileInput');
+      const widthInput = document.getElementById('widthInput');
+      const heightInput = document.getElementById('heightInput');
+
+      const file = fileInput.files[0];
+      const width = widthInput.value;
+      const height = heightInput.value;
+
+      if (!file || !width || !height) {
+        alert('Brak parametrów');
+        return;
+      }
+
+      const formData = new FormData();
+      formData.append('file', file);
+      formData.append('width', width);
+      formData.append('height', height);
+
+      try {
+        const response = await fetch('/resize', {
+          method: 'POST',
+          body: formData
+        });
+
+        if (response.ok) {
+          const blob = await response.blob();
+          const downloadLink = document.createElement('a');
+          downloadLink.href = window.URL.createObjectURL(blob);
+          downloadLink.download = 'resized_image.png';
+          downloadLink.click();
+        } 
+        else {
+          alert('Błąd');
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        alert('Błąd');
+      }
+    }
+  </script>
+</body>
+</html>

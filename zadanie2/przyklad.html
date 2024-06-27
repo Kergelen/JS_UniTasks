@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+
+<HTML>
+<HEAD>
+ <meta charset="UTF-8">
+Krótka testowa strona
+</HEAD>
+<BODY style="background-color:yellow;">
+<H1> Ile pol </H1>
+Seria inputow <p id="bb" >  </p>
+<form>
+<br>
+Ile pol : <input type=number id="nf" name="nf" 
+value=1 onchange="updatef(this.form,'r'); ">
+</form>
+<div id="bbb">___ </div>
+<!---   dynamiczne inputy (trzeba uzywac child) ---> 
+<script>
+function updatef()
+{
+var ile=parseInt(document.getElementById("nf").value);
+ var container=document.getElementById("bb");
+ while (container.hasChildNodes()) {
+                container.removeChild(container.lastChild);
+            }
+            for (i=0;i<ile;i++){
+                // Append a node with a random text
+                container.appendChild(document.createTextNode("nf" + (i+1)));
+                // Create an <input> element, set its type and name attributes
+                var input = document.createElement("input");
+                input.type = "text";
+                input.name = "nf" + i;
+                input.id = "nf" + i;
+		input.addEventListener('input', updateff);        
+                container.appendChild(input);
+                // Append a line break 
+                container.appendChild(document.createElement("br"));
+            }
+}
+
+
+
+function updateff(e)
+{
+var idx="";
+ var ile=parseInt(document.getElementById("nf").value);
+document.getElementById("bbb").innerHTML="";
+
+ for (j=0; j<ile; j++)
+ {
+ idx="nf"+String(j);
+console.log(idx);
+console.log(ile);
+document.getElementById("bbb").innerHTML+= String(document.getElementById(idx).value)+"<br>";
+ 
+}
+}
+
+
+
+</script>
+
+
+
+</BODY>
+</HTML>

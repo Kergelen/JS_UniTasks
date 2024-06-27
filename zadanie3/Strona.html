@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator zużycia energii elektrycznej</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" alt="nie wczytano"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+<div class="calculator">
+    <header><h2>Kalkulator zużycia energii elektrycznej</h2></header>
+    <form id="elCalculator">
+        <div class="group">
+            <label for="power">Moc urządzenia (W):</label>
+            <input type="number" id="power" name="power" min="0" required>
+        </div>
+        <div class="group">
+            <label for="hours">Czas pracy urządzenia (godzin dziennie):</label>
+            <input type="number" id="hours" name="hours" min="0" required>
+        </div>
+        <div class="group">
+            <label for="wojewodztwo">Województwo:</label>
+            <select id="wojewodztwo" name="wojewodztwo">
+                <option value="warszawa">Warszawa (1.17 zł/kWh)</option>
+                <option value="gdansk">Gdańsk (1.21 zł/kWh)</option>
+                <option value="olsztyn">Olsztyn (1.21 zł/kWh)</option>
+                <option value="katowice">Katowice (1.14 zł/kWh)</option>
+                <option value="krakow">Kraków (1.12 zł/kWh)</option>
+                <option value="opole">Opole (1.12 zł/kWh)</option>
+                <option value="wroclaw">Wrocław (1.12 zł/kWh)</option>
+                <option value="poznan">Poznań (1.11 zł/kWh)</option>
+                <option value="zielona_gora">Zielona Góra (1.11 zł/kWh)</option>
+                <option value="bydgoszcz_torun">Bydgoszcz/Toruń (1.11 zł/kWh)</option>
+                <option value="szczecin">Szczecin (1.11 zł/kWh)</option>
+                <option value="bialystok">Białystok (1.19 zł/kWh)</option>
+                <option value="radom_mazowieckie">Radom i woj. mazowieckie (1.19 zł/kWh)</option>
+                <option value="kielce">Kielce (1.19 zł/kWh)</option>
+                <option value="rzeszow">Rzeszów (1.19 zł/kWh)</option>
+                <option value="lublin">Lublin (1.19 zł/kWh)</option>
+                <option value="lodz">Łódź (1.19 zł/kWh)</option>
+            </select>
+        </div>
+        <div class="group">
+            <button type="submit">Obliczyć koszt</button>
+        </div>
+    </form>
+    <div id="result"></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

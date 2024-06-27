@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voteing</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Głosowanie</h1>
+        <canvas id="voteChart" width="400" height="400"></canvas>
+        <form id="voteForm">
+            <label for="key">Klucz:</label>
+            <input type="text" id="key" required>
+            <label for="candidate">Najlepszy album Crystal Castles:</label>
+            <select id="candidate" required>
+                <option value="a">(I)</option>
+                <option value="b">(II)</option>
+                <option value="c">(III)</option>
+            </select>
+            <button type="submit">Submit</button>
+        </form>
+        <button id="generateKey">Wygeneruj klucz</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

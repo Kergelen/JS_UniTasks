@@ -1,0 +1,11 @@
+{
+  "name": "unix-time-fryzen",
+  "version": "1.0.0",
+  "description": "unix time to date",
+  "main": "unix-time-fryzen.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mikita Fryzen",
+  "license": "ISC"
+}
